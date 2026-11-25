@@ -124,7 +124,7 @@ function daysLeft(){var now=new Date(),d=new Date(2026,10,29);var t=new Date(now
 function countChip(){var n=daysLeft();if(n>0)return '<span class="count">大会まで あと<b>'+n+'</b>日</span>';if(n===0)return '<span class="count">🍁 本日開催！</span>';return '<span class="count">ご来場ありがとうございました</span>'}
 function stars(){var p=[[8,12],[22,8],[40,15],[62,6],[80,14],[92,30],[88,62],[70,88],[50,92],[14,80],[6,52],[30,40]],h='';p.forEach(function(q,i){h+='<i style="left:'+q[0]+'%;top:'+q[1]+'%;animation-delay:-'+(i*0.37).toFixed(2)+'s"></i>'});return h}
 function cover(){
-  return '<section class="cover" aria-label="大会表紙"><div class="kk-ttl"><small>第19回 ドッジボール大会</small><b>霞渓杯</b><span>KAKEI CUP 2026</span></div>'+
+  return '<section class="cover hero" aria-label="大会表紙"><div class="hero-bg" aria-hidden="true"></div><div class="kk-ttl"><small>第19回 ドッジボール大会</small><b>霞渓杯</b><span>KAKEI CUP 2026</span></div>'+
    '<div class="art"><img src="img/cover.webp" alt="第19回 霞渓杯 表紙（紅葉の山とドッジボールをする子どもたち）" width="1138" height="1582">'+stars()+'</div>'+countChip()+
    '<dl><dt>開催日</dt><dd>2026年11月29日（日）</dd><dt>会場</dt><dd>池田町総合体育館（2面）</dd><dt>主催</dt><dd>霞渓杯実行委員会</dd><dt>主管</dt><dd>岐阜県ドッジボール協会</dd><dt>協力</dt><dd>株式会社河合寿司</dd></dl>'+
    '<button type="button" class="btn share-big" data-share>'+ICON.share+' このページをシェアする</button></section>';
