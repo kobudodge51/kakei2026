@@ -844,3 +844,36 @@ html,body{overflow-x:hidden}
 .hero-img{margin-bottom:-2px}
 .hero-foot{background:linear-gradient(180deg,#2B689F 0,#3A7DB8 30%,#86BCE4 68%,var(--bg) 100%)}
 :root[data-theme="dark"] .hero-foot{background:linear-gradient(180deg,#2B689F 0,#1B4F85 45%,#0A1A33 100%)}
+
+/* ===== 表紙の世界を全ページの背景に（枠なし） ===== */
+body,:root[data-theme="dark"] body{background:#CFE8F7}
+:root[data-theme="dark"] body{background:#0A1A33}
+#app::before{content:"";position:fixed;inset:0;z-index:-2;background:url(img/world.webp) center top/cover no-repeat}
+#app::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(238,246,253,.10) 0%,rgba(238,246,253,.35) 45%,rgba(238,246,253,.6) 100%)}
+:root[data-theme="dark"] #app::after{background:linear-gradient(180deg,rgba(8,22,46,.55) 0%,rgba(8,22,46,.72) 50%,rgba(8,22,46,.82) 100%)}
+#app{position:relative;isolation:isolate}
+.hero-in,.hero-in::after,.hero-foot,:root[data-theme="dark"] .hero-foot{background:none!important}
+.hero-in::after{display:none}
+.hero-img{-webkit-mask-image:radial-gradient(120% 100% at 50% 42%,#000 62%,transparent 100%);mask-image:radial-gradient(120% 100% at 50% 42%,#000 62%,transparent 100%)}
+@media (min-width:561px){.hero-img{-webkit-mask-image:radial-gradient(75% 80% at 50% 45%,#000 60%,transparent 100%);mask-image:radial-gradient(75% 80% at 50% 45%,#000 60%,transparent 100%)}}
+.hero-foot{padding:6px 16px 26px}
+.hero-foot .count{background:rgba(15,63,122,.55);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+main .wrap>h2,main .wrap>div>h2,main .wrap .note:not(.card .note){text-shadow:0 1px 0 rgba(255,255,255,.8),0 0 10px rgba(255,255,255,.9)}
+:root[data-theme="dark"] main .wrap>h2,:root[data-theme="dark"] main .wrap>div>h2,:root[data-theme="dark"] main .wrap .note:not(.card .note){text-shadow:0 1px 6px rgba(0,0,0,.8)}
+/* オープニング：枠なしで世界に溶け込む */
+#intro{background:url(img/world.webp) center top/cover no-repeat,#9ACFEF!important}
+#intro .pic img{border-radius:0;box-shadow:none;
+  -webkit-mask-image:radial-gradient(80% 78% at 50% 46%,#000 62%,transparent 100%);mask-image:radial-gradient(80% 78% at 50% 46%,#000 62%,transparent 100%)}
+#intro .pic::before,#intro .pic::after{display:none}
+#intro .when{color:#fff;text-shadow:0 2px 10px rgba(10,40,90,.8)}
+#intro .pic img{-webkit-mask-image:radial-gradient(56% 54% at 50% 48%,#000 72%,transparent 100%);mask-image:radial-gradient(56% 54% at 50% 48%,#000 72%,transparent 100%)}
+.hero-img{-webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,#000 82%,transparent 100%)}
+@media (min-width:561px){.hero-img{-webkit-mask-image:radial-gradient(56% 56% at 50% 46%,#000 74%,transparent 100%);mask-image:radial-gradient(56% 56% at 50% 46%,#000 74%,transparent 100%)}}
+#app::after{background:linear-gradient(180deg,rgba(238,246,253,.12) 0%,rgba(238,246,253,.55) 28%,rgba(238,246,253,.72) 50%,rgba(238,246,253,.7) 100%)}
+#intro .pic img,.hero-img{
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0,#000 5%,#000 93%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0,#000 5%,#000 93%,transparent 100%);
+  mask-composite:intersect}
+@media (max-width:560px){.hero-img{-webkit-mask-image:linear-gradient(180deg,#000 94%,transparent 100%);mask-image:linear-gradient(180deg,#000 94%,transparent 100%)}}
