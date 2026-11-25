@@ -780,3 +780,67 @@ tr.adv2 td.rk{color:var(--jr)}
   .sv-hq{position:absolute;left:2px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;padding:6px 2px;font-size:10px}
 }
 @media (max-width:620px){.sv-top{margin:0}.sv-top .sm-c{font-size:10px;min-height:40px}}
+
+/* ===== 霞渓杯カラー：水色・オレンジ・青＋差し色（ターコイズ・コーラルピンク・バイオレット・ゴールド） ===== */
+:root{
+  --sky:#2BB3F0;--orange:#F7931E;--blue:#1E5FD8;
+  --teal:#12C2B0;--coral:#FF5A7A;--violet:#7B5CFF;--gold:#FFC23D;
+  --navy:#1E5FD8;--navy2:#123C96;--red:#F27A12;--red2:#D9600A;
+  --of:#1E5FD8;--jr:#F7931E;--court-a:#F7931E;--court-b:#1E5FD8;--win:#F27A12;--path-win:#F7931E;
+  --ok:#0EA597;--ok-soft:rgba(18,194,176,.14);
+}
+:root[data-theme="dark"]{
+  --bg:#061430;
+  --surface:#211D3F;--surface2:#2C2752;--line:#433D72;
+  --ink:#F4F2FF;--muted:#B9B3DE;--path-none:#3A3567;
+  --shadow:0 10px 26px rgba(0,0,0,.5),0 0 0 1px rgba(123,92,255,.12);
+}
+:root[data-theme="dark"] body{background:radial-gradient(60% 40% at 15% 0%,rgba(43,179,240,.18),transparent 70%) fixed,radial-gradient(50% 35% at 100% 100%,rgba(247,147,30,.12),transparent 70%) fixed,linear-gradient(180deg,#0B2350 0,#061430 600px)}
+:root[data-theme="dark"] header.top{background:rgba(6,20,48,.94)}
+:root[data-theme="dark"] .bottomnav{background:#0A1C40;border-top-color:#1E3A6E}
+header.top::after,.bottomnav::before{background:linear-gradient(90deg,var(--sky),var(--blue) 28%,var(--violet) 48%,var(--orange) 72%,var(--coral))}
+/* 見出し・区切り */
+.stagehead::before,.stagehead::after{height:3px;border-radius:2px;background:linear-gradient(90deg,var(--sky),var(--blue) 50%,var(--violet))}
+.stagehead::after{background:linear-gradient(90deg,var(--violet),var(--orange) 50%,var(--coral))}
+.break{background:linear-gradient(110deg,var(--blue),var(--violet) 70%,#9B4DE0);border-left:5px solid var(--orange)}
+.break small{color:#E4DEFF}
+.time{color:var(--blue)}:root[data-theme="dark"] .time{color:var(--sky)}
+.flow b{color:var(--blue)}:root[data-theme="dark"] .flow b{color:var(--sky)}
+ul.rules li::marker{color:var(--orange)}
+.done{background:var(--ok-soft);color:var(--ok)}:root[data-theme="dark"] .done{color:#5FE6D7}
+/* 試合カード */
+.pill{background:var(--coral);color:#fff}
+.match.now{border-color:var(--teal);box-shadow:0 0 0 2px var(--teal),0 8px 18px rgba(18,194,176,.25)}
+.dv.PRE{background:var(--teal)}.dv.OF{background:var(--blue)}.dv.JR{background:var(--orange)}
+:root[data-theme="dark"] .dv.OF{background:#3D7BF0}
+.vp{background:var(--violet)}
+.seg button[aria-pressed="true"]{background:var(--blue);color:#fff}
+.seg button[aria-pressed="true"].pre{background:var(--teal)}
+.seg button[aria-pressed="true"].of{background:var(--blue)}
+.seg button[aria-pressed="true"].jr{background:var(--orange)}
+.courthead .a{background:linear-gradient(135deg,#FFAA4A,var(--orange))}.courthead .b{background:linear-gradient(135deg,var(--sky),var(--blue))}
+/* 表 */
+tr.adv td{background:rgba(43,179,240,.10)}:root[data-theme="dark"] tr.adv td{background:rgba(43,179,240,.16)}
+tr.adv2 td{background:rgba(247,147,30,.08)}:root[data-theme="dark"] tr.adv2 td{background:rgba(247,147,30,.13)}
+tr.adv2 td.rk{color:var(--orange)}
+td.rk1{color:var(--coral)!important}
+/* 結果・順位 */
+.podium li.p1{background:linear-gradient(90deg,#FFD866,#FFF3C8);color:#3A2A00}
+.notice{background:rgba(255,90,122,.08);border-color:rgba(255,90,122,.35)}
+.sharebtn{color:var(--blue)}.sharebtn svg{color:var(--coral)}
+:root[data-theme="dark"] .sharebtn{background:var(--surface2);border-color:var(--line);color:#fff}
+.share-big svg{color:var(--coral)}
+.pubcard{border-color:var(--orange)}
+.hidden-card{border-color:var(--sky)}
+.hidden-card h2{color:var(--blue)}:root[data-theme="dark"] .hidden-card h2{color:var(--sky)}
+.hc-flow b{color:var(--orange)}
+.tb-h{color:var(--blue)}:root[data-theme="dark"] .tb-h{color:var(--sky)}
+a{color:var(--blue)}:root[data-theme="dark"] a{color:#7CCBFF}
+/* ダーク：枠内は背景（紺）と違うバイオレット系に */
+:root[data-theme="dark"] .card,:root[data-theme="dark"] .match,:root[data-theme="dark"] .hidden-card,:root[data-theme="dark"] .tbl-wrap,:root[data-theme="dark"] .etbl-wrap{background:var(--surface);border-color:var(--line)}
+:root[data-theme="dark"] .match.empty{background:transparent}
+:root[data-theme="dark"] .seg,:root[data-theme="dark"] .sel,:root[data-theme="dark"] .hc-flow span,:root[data-theme="dark"] .podium li{background:var(--surface2);border-color:var(--line)}
+:root[data-theme="dark"] .podium li.p1{background:linear-gradient(90deg,#FFD866,#FFE9A8)}
+:root[data-theme="dark"] .seatmap,:root[data-theme="dark"] .seatv{background:var(--surface2)}
+:root[data-theme="dark"] .sm-c{background:var(--surface)}
+.cover::before{background:linear-gradient(90deg,var(--sky),var(--blue) 30%,var(--violet) 50%,var(--orange) 75%,var(--coral))!important}
