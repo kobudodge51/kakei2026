@@ -806,3 +806,41 @@ body{background:
 .hero-bg{inset:-40px -60px 0;transform:none;-webkit-mask-image:linear-gradient(180deg,#000 0,#000 60%,transparent 100%);mask-image:linear-gradient(180deg,#000 0,#000 60%,transparent 100%)}
 .cover.hero{padding-bottom:60px;margin-bottom:-30px}
 .cover.hero dl{background:rgba(15,63,122,.42);border-color:rgba(255,255,255,.35)}
+/* ===== トップ v2：表紙をそのまま主役に。下端の青からページへ自然につなぐ ===== */
+body{background:var(--bg)}
+:root[data-theme="dark"] body{background:#0A1A33}
+.hero-bg{display:none}
+.cover.hero,:root[data-theme="dark"] .cover.hero{position:relative;display:block;background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;
+  margin:-22px calc(-1 * max(16px,env(safe-area-inset-left,0px))) 0;padding:0}
+.hero-in{position:relative;background:linear-gradient(180deg,#9AD3EF 0%,#7CC0E8 40%,#5D9FD2 70%,#1E5F9D 100%)}
+.hero-img{display:block;width:100%;max-width:560px;height:auto;margin:0 auto}
+.hero-foot{display:grid;justify-items:center;gap:10px;padding:14px 16px 46px;
+  background:linear-gradient(180deg,#1E5F9D 0,#2B6FAE 35%,#7FB6E0 70%,var(--bg) 100%)}
+:root[data-theme="dark"] .hero-foot{background:linear-gradient(180deg,#1E5F9D 0,#174C82 45%,#0A1A33 100%)}
+.hero-foot .count{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.55);color:#fff}
+.hero-foot .share-big{margin:0}
+@media (min-width:561px){
+  .hero-in{background:linear-gradient(90deg,#6FB4E2 0%,#9AD3EF 30%,#9AD3EF 70%,#6FB4E2 100%)}
+  .hero-in::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(180deg,transparent,#1E5F9D);pointer-events:none;z-index:0}
+  .hero-img{position:relative;z-index:1;box-shadow:0 0 60px 30px rgba(154,211,239,.0)}
+}
+@media (min-width:761px){.cover.hero{margin-inline:calc((760px - 100vw)/2);padding:0}}
+.cover.hero>.hero-foot,.cover.hero>.hero-in{width:auto;max-width:none;margin:0}
+.cover.hero>.hero-foot{width:100%!important;box-sizing:border-box}
+@media (min-width:561px){
+  .cover.hero{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)))}
+  
+  .hero-in::after{display:none}
+  .hero-img{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%)}
+}
+@media (min-width:761px){.cover.hero{margin-inline:calc((760px - 100vw)/2)}}
+.cover.hero,:root[data-theme="dark"] .cover.hero{width:100vw!important;max-width:none!important;margin:-22px 0 0 calc(50% - 50vw)!important;justify-self:start}
+.cover.hero>.hero-in{width:100%!important;box-sizing:border-box}
+html,body{overflow-x:hidden}
+@media (min-width:561px){
+  .hero-in{background:linear-gradient(180deg,#A6D8F1 0%,#86C4EA 35%,#6AAEDF 60%,#4789C7 82%,#2B689F 100%)}
+}
+.hero-in{background-color:#2B689F}
+.hero-img{margin-bottom:-2px}
+.hero-foot{background:linear-gradient(180deg,#2B689F 0,#3A7DB8 30%,#86BCE4 68%,var(--bg) 100%)}
+:root[data-theme="dark"] .hero-foot{background:linear-gradient(180deg,#2B689F 0,#1B4F85 45%,#0A1A33 100%)}
