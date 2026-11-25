@@ -124,8 +124,10 @@ function daysLeft(){var now=new Date(),d=new Date(2026,10,29);var t=new Date(now
 function countChip(){var n=daysLeft();if(n>0)return '<span class="count">大会まで あと<b>'+n+'</b>日</span>';if(n===0)return '<span class="count">🍁 本日開催！</span>';return '<span class="count">ご来場ありがとうございました</span>'}
 function stars(){var p=[[8,12],[22,8],[40,15],[62,6],[80,14],[92,30],[88,62],[70,88],[50,92],[14,80],[6,52],[30,40]],h='';p.forEach(function(q,i){h+='<i style="left:'+q[0]+'%;top:'+q[1]+'%;animation-delay:-'+(i*0.37).toFixed(2)+'s"></i>'});return h}
 function cover(){
-  return '<section class="cover hero" aria-label="大会表紙"><div class="hero-in"><img class="hero-img" src="img/hero.webp" alt="第19回 ドッジボール大会 霞渓杯　日時：令和8年11月29日（日）場所：池田町総合体育館　主催：霞渓杯実行委員会　主幹：岐阜県ドッジボール協会　協力：㈱河合寿司" width="1112" height="1506"></div>'+
-   '<div class="hero-foot">'+countChip()+'<button type="button" class="btn share-big" data-share>'+ICON.share+' このページをシェアする</button></div></section>';
+  return '<section class="cover" aria-label="大会表紙"><div class="kk-ttl"><small>第19回 ドッジボール大会</small><b>霞渓杯</b><span>KAKEI CUP 2026</span></div>'+
+   '<div class="art"><img src="img/cover.webp" alt="第19回 霞渓杯 表紙（紅葉の山とドッジボールをする子どもたち）" width="1138" height="1582">'+stars()+'</div>'+countChip()+
+   '<dl><dt>開催日</dt><dd>2026年11月29日（日）</dd><dt>会場</dt><dd>池田町総合体育館（2面）</dd><dt>主催</dt><dd>霞渓杯実行委員会</dd><dt>主管</dt><dd>岐阜県ドッジボール協会</dd><dt>協力</dt><dd>株式会社河合寿司</dd></dl>'+
+   '<button type="button" class="btn share-big" data-share>'+ICON.share+' このページをシェアする</button></section>';
 }
 function hiddenView(){
   return '<section class="hidden-card"><div class="hc-ic">🔒</div><h2>組み合わせ・タイムスケジュールは<br>当日発表です</h2><p>11月29日（日）大会当日、受付開始後にこのページで公開します。<br>公開されると、このページを開いている人の画面にも自動で表示されます。</p><div class="hc-flow"><span><b>8:30</b>受付開始</span><span><b>8:40</b>審判会議</span><span><b>8:45</b>監督者会議</span><span><b>9:00</b>開会式</span><span><b>9:30</b>試合開始</span></div><button type="button" class="btn share-big" data-share>'+ICON.share+' このページをシェアする</button></section>';
@@ -411,7 +413,7 @@ function render(){
   var tabs=[['result','結果',ICON.trophy],['info','要項',ICON.info],['sched','試合',ICON.sched],['league','予選',ICON.league],['tour','トーナメント',ICON.tour]];
   if(isAdmin())tabs.push(['entry','入力',ICON.entry]);
   var y=window.scrollY,ae=document.activeElement,aid=ae&&ae.id&&/^in-/.test(ae.id)?ae.id:null,sel0=aid&&ae.selectionStart!=null?[ae.selectionStart,ae.selectionEnd]:null;
-  document.body.classList.toggle('wide',tab==='entry');document.body.setAttribute('data-tab',tab);
+  document.body.classList.toggle('wide',tab==='entry');
   document.getElementById('app').innerHTML=
    '<header class="top"><div class="wrap"><div class="logo"><div class="hd-ttl"><small>第19回</small>霞渓杯<span>2026</span></div><div class="meta"><span class="live'+(online?' on':'')+'"></span>'+(online?'LIVE 速報中':'速報ページ')+(isAdmin()?'<span class="pubst '+(PUB?'on':'')+'">'+(PUB?'公開中':'非公開')+'</span>':'')+(VIS?'<span class="visits" title="アクセス数">🎁 <b>'+Number(VIS.total).toLocaleString('ja-JP')+'</b>（今日 '+Number(VIS.today).toLocaleString('ja-JP')+'）</span>':'')+'</div></div>'+
    '<button type="button" class="sharebtn" data-share aria-label="このページをシェア">'+ICON.share+'<span>シェア</span></button><div class="themesw" role="group" aria-label="表示モード"><button type="button" data-th="light" aria-label="ライトモード" aria-pressed="'+(th!=='dark')+'">'+ICON.sun+'</button><button type="button" data-th="dark" aria-label="ダークモード" aria-pressed="'+(th==='dark')+'">'+ICON.moon+'</button></div></div></header>'+
