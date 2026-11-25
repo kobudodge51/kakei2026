@@ -411,7 +411,7 @@ function render(){
   var tabs=[['result','結果',ICON.trophy],['info','要項',ICON.info],['sched','試合',ICON.sched],['league','予選',ICON.league],['tour','トーナメント',ICON.tour]];
   if(isAdmin())tabs.push(['entry','入力',ICON.entry]);
   var y=window.scrollY,ae=document.activeElement,aid=ae&&ae.id&&/^in-/.test(ae.id)?ae.id:null,sel0=aid&&ae.selectionStart!=null?[ae.selectionStart,ae.selectionEnd]:null;
-  document.body.classList.toggle('wide',tab==='entry');
+  document.body.classList.toggle('wide',tab==='entry');document.body.setAttribute('data-tab',tab);
   document.getElementById('app').innerHTML=
    '<header class="top"><div class="wrap"><div class="logo"><div class="hd-ttl"><small>第19回</small>霞渓杯<span>2026</span></div><div class="meta"><span class="live'+(online?' on':'')+'"></span>'+(online?'LIVE 速報中':'速報ページ')+(isAdmin()?'<span class="pubst '+(PUB?'on':'')+'">'+(PUB?'公開中':'非公開')+'</span>':'')+(VIS?'<span class="visits" title="アクセス数">🎁 <b>'+Number(VIS.total).toLocaleString('ja-JP')+'</b>（今日 '+Number(VIS.today).toLocaleString('ja-JP')+'）</span>':'')+'</div></div>'+
    '<button type="button" class="sharebtn" data-share aria-label="このページをシェア">'+ICON.share+'<span>シェア</span></button><div class="themesw" role="group" aria-label="表示モード"><button type="button" data-th="light" aria-label="ライトモード" aria-pressed="'+(th!=='dark')+'">'+ICON.sun+'</button><button type="button" data-th="dark" aria-label="ダークモード" aria-pressed="'+(th==='dark')+'">'+ICON.moon+'</button></div></div></header>'+

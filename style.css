@@ -877,3 +877,23 @@ main .wrap>h2,main .wrap>div>h2,main .wrap .note:not(.card .note){text-shadow:0 
   mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%),linear-gradient(180deg,transparent 0,#000 5%,#000 93%,transparent 100%);
   mask-composite:intersect}
 @media (max-width:560px){.hero-img{-webkit-mask-image:linear-gradient(180deg,#000 94%,transparent 100%);mask-image:linear-gradient(180deg,#000 94%,transparent 100%)}}
+
+/* ===== 背景：いただいた3枚の世界観（タブごとに切り替え） ===== */
+:root{--world:url(img/bg-court.webp);
+  --navy:#1673D9;--navy2:#0B4FA8;--of:#1673D9;--court-b:#1673D9;--red:#EE5A1C;--red2:#C9420E;--court-a:#EE5A1C;--win:#EE5A1C;--path-win:#EE5A1C;--gold:#F7C531;--jr:#9B5CE0;
+  --kk-warm:linear-gradient(135deg,#FFD24A,#F7931E 55%,#E8541A)}
+body[data-tab="result"]{--world:url(img/bg-burst.webp)}
+body[data-tab="info"]{--world:url(img/bg-autumn.webp)}
+#app::before{background:var(--world) center top/cover no-repeat}
+#app::after{background:linear-gradient(180deg,rgba(240,248,255,.0) 0%,rgba(240,248,255,.35) 30%,rgba(240,248,255,.62) 55%,rgba(240,248,255,.66) 100%)}
+:root[data-theme="dark"] #app::after{background:linear-gradient(180deg,rgba(6,22,52,.45) 0%,rgba(6,22,52,.7) 45%,rgba(6,22,52,.8) 100%)}
+body{background:#2F8BE6}
+#intro{background:url(img/bg-burst.webp) center/cover no-repeat,#2F8BE6!important}
+header.top::after,.bottomnav::before{background:linear-gradient(90deg,#1E8BF0,#9B5CE0 30%,#F7C531 60%,#EE5A1C)}
+.dv.JR{background:var(--jr)}.tm.JR{border-color:var(--jr)}
+.courthead .b{background:linear-gradient(135deg,#2E8EF0,#0B4FA8)}.courthead .a{background:linear-gradient(135deg,#FF8A3D,#E8541A)}
+.hd-ttl{color:#0B4FA8}
+.hero-foot .count{background:rgba(11,79,168,.55)}
+.card,.match,.slot .match{backdrop-filter:none}
+body:not([data-tab="result"]):not([data-tab="info"]) #app::after{background:linear-gradient(180deg,rgba(240,248,255,.55) 0%,rgba(240,248,255,.62) 40%,rgba(240,248,255,.66) 100%)}
+:root[data-theme="dark"] body:not([data-tab="result"]):not([data-tab="info"]) #app::after{background:rgba(6,22,52,.74)}
